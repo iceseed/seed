@@ -1,0 +1,50 @@
+<context schema="lyd_invest_shsj">
+
+	<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+					connectionURL="jdbc:mysql://192.168.254.38:3306/lyd_invest_shsj?characterEncoding=utf8"
+					uName="lyd_invest" password="lingyongdai_licai" />
+
+	<!-- 数据类型 -->	
+	<javaTypeResolver>
+		<property name="int" value="Integer" />
+		<property name="tinyint" value="Integer" />
+		<property name="bigint" value="Long" />
+		<property name="char" value="String" />
+		<property name="varchar" value="String" />
+		<property name="text" value="String" />
+		<property name="float" value="Float" />
+		<property name="double" value="Double" />
+		<property name="decimal" value="Double" />
+		<property name="smallint" value="Integer" />
+		<property name="timestamp" value="Date" />
+		<property name="datetime" value="Date" />
+		<property name="bit" value="Boolean" />
+	</javaTypeResolver>
+
+	<!--继承base类-->
+	<extendsBase>
+		<property name="dto" value="com.ice.common.persistence.Query" />
+		<property name="mapper" value="tk.mybatis.mapper.common.Mapper" />
+		<property name="service" value="com.ice.common.service.IBaseService" />
+		<property name="serviceImpl" value="com.ice.common.service.impl.BaseServiceImpl" />
+	</extendsBase>
+
+	<!--需要引入的包-->
+	<importClasses>
+		<property name="dto">
+			<import value="com.ice.common.persistence.Criteria"/>
+			<import value="com.ice.common.persistence.QueryCriteria"/>
+		</property>
+	</importClasses>
+
+	<!-- 表 -->
+	<!-- 测试表开始 -->
+	<table tableName="t_admin" domainObjectName="Admin"
+		   packageName="com.ice.seed.core.system" desc="管理员信息表" author="luxor">
+		<generatedKey column="id" identity="true" />
+		<dto packageName="com.ice.seed.core.system.query" />
+	</table>
+	<!-- 测试表结束 -->
+	
+
+</context>
