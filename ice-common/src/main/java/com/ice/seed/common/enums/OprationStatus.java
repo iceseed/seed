@@ -5,8 +5,8 @@ import lombok.Setter;
 
 /**
  * 系统通用状态码枚举
- * @since : 2016年11月8日
- * @author : kezhan
+ * @since : 2016年11月9日
+ * @author : iceSeed
  * @version : v0.0.1
  */
 public enum OprationStatus {

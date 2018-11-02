@@ -7,13 +7,11 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.Date;
 import java.util.List;
 
-
 /**
  * 查询对象基类
- *
- * @author : kezhan
+ * @since : 2016年11月9日
+ * @author : iceSeed
  * @version : v0.0.1
- * @since : 2016年11月8日
  */
 public abstract class Query {
 

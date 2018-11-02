@@ -14,12 +14,12 @@ import com.ice.seed.common.exception.BaseException;
 
 import java.util.List;
 
+
 /**
  * 通用业务接口实现类
- *
- * @author : kezhan
+ * @author : IceSeed
  * @version : v0.0.1
- * @since : 2016年11月9日
+ * @since : 2018/10/24
  */
 @Service
 public abstract class BaseServiceImpl<T> implements IBaseService<T> {

@@ -5,11 +5,10 @@ import com.ice.seed.common.persistence.mybatis.mapper.criteria.SelectSliceByCrit
 import tk.mybatis.mapper.common.*;
 import tk.mybatis.mapper.common.special.InsertListMapper;
 
-
 /**
  * mybatis通用Mapper接口
  * @since : 2016年11月9日
- * @author : luxor
+ * @author : iceSeed
  * @version : v0.0.1
  */
 public interface CommonMapper<T> extends

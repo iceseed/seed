@@ -8,9 +8,9 @@ import java.util.Map;
 
 /**
  * 通用Mapper接口,Condition查询
- *
- * @param <T> 不能为空
- * @author liuzh
+ * @author : IceSeed
+ * @version : v0.0.1
+ * @since : 2018/10/24
  */
 public interface SelectByCriteriaMapper<T> {
 

@@ -5,9 +5,9 @@ import tk.mybatis.mapper.entity.Example;
 
 /**
  * 通用查询条件
- * @author Luxor
- * @version v0.0.1
- * @since 2016/11/17
+ * @author : IceSeed
+ * @version : v0.0.1
+ * @since : 2018/10/24
  */
 @Data
 public class QueryCriteria extends Example {

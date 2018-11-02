@@ -6,10 +6,9 @@ import java.util.List;
 
 /**
  * 分页模型处理
- *
- * @author : kezhan
- * @version : v0.0.1
  * @since : 2016年11月9日
+ * @author : iceSeed
+ * @version : v0.0.1
  */
 public class PageList<T> implements Serializable {
     public static long getSerialVersionUID() {

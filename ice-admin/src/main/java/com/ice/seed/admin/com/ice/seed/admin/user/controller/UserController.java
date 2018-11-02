@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @version : v0.0.1
  * @since : 2018/10/24
  */
-
-
 @Controller
 public class UserController {
 

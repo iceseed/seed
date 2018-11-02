@@ -6,9 +6,9 @@ import org.apache.ibatis.annotations.SelectProvider;
 import java.util.List;
 
 /**
- * @author Luxor
- * @version v0.0.1
- * @since 2016/11/20
+ * @author : IceSeed
+ * @version : v0.0.1
+ * @since : 2018/10/24
  */
 public interface SelectSliceByCriteriaMapper<T>  {
     /**

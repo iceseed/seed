@@ -1,14 +1,11 @@
 package com.ice.seed.common.persistence.criteria;
 
-import tk.mybatis.mapper.entity.EntityColumn;
 import tk.mybatis.mapper.entity.Example;
 
-import java.util.Map;
-
 /**
- * @author Luxor
- * @version v0.0.1
- * @since 2016/11/18
+ * @since : 2016年11月9日
+ * @author : iceSeed
+ * @version : v0.0.1
  */
 public  class Criteria {
 

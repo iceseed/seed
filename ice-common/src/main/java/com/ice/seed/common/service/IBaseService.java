@@ -7,9 +7,9 @@ import com.ice.seed.common.persistence.pager.PageList;
 
 /**
  * 业务接口基类
- * @since : 2016年11月9日
- * @author : kezhan
+ * @author : IceSeed
  * @version : v0.0.1
+ * @since : 2018/10/24
  */
 public interface IBaseService<T> {
 

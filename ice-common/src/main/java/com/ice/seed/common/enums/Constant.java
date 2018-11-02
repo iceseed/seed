@@ -2,9 +2,9 @@ package com.ice.seed.common.enums;
 
 /**
  * 常量集合
- * @since : 2016年11月8日
- * @author : kezhan
+ * @author : IceSeed
  * @version : v0.0.1
+ * @since : 2018/10/24
  */
 public interface Constant {
 	

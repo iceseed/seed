@@ -82,6 +82,5 @@ public class AdminDomain implements Serializable {
 	
 	/*最后修改人*/
 	private Long updateAdmin;
-	
 
 }
