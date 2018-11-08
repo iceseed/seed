@@ -1,5 +1,6 @@
 package com.ice.seed.admin.com.ice.seed.admin.user.controller;
 import com.alibaba.fastjson.JSONObject;
+import com.ice.seed.common.utils.RedisUtils;
 import com.ice.seed.core.system.domain.AdminDomain;
 import com.ice.seed.core.system.service.IAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,8 @@ public class UserController {
 
     @Autowired
     private IAdminService adminService;
+    @Autowired
+    private RedisUtils redisUtils;
 
     /**
      * 客户管理界面
@@ -31,6 +34,7 @@ public class UserController {
         JSONObject json = new JSONObject();
         AdminDomain adminDomain = adminService.get(1L);
         json.put("adminDomain", adminDomain);
+        redisUtils.putCache("iceSeed",adminDomain);
         return json.toString();
     }
 }

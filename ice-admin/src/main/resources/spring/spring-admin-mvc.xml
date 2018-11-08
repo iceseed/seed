@@ -39,4 +39,10 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <!-- redis 注入处理 -->
+    <bean id="redisUtils" class="com.ice.seed.common.utils.RedisUtils">
+        <property name="redisTemplate" ref="redisTemplate" />
+        <property name="prefixname" value="${ice.redis.prefixname}"></property>
+    </bean>
+
 </beans>

@@ -6,4 +6,5 @@
 
     <!--载入参数-->
     <import resource="classpath:spring/spring-service-core.xml"/>
+    <import resource="classpath:spring/spring-redis-common.xml"/>
 </beans>

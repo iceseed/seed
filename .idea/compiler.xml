@@ -12,5 +12,8 @@
         <module name="ice-generator" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ice-boot" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
