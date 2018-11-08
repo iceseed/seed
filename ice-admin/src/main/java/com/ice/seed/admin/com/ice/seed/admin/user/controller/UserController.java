@@ -1,6 +1,7 @@
 package com.ice.seed.admin.com.ice.seed.admin.user.controller;
 import com.alibaba.fastjson.JSONObject;
-import com.ice.seed.common.utils.RedisUtils;
+import com.ice.seed.common.cache.EhcacheManager;
+import com.ice.seed.common.cache.RedisCache;
 import com.ice.seed.core.system.domain.AdminDomain;
 import com.ice.seed.core.system.service.IAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +20,9 @@ public class UserController {
 
     @Autowired
     private IAdminService adminService;
+
     @Autowired
-    private RedisUtils redisUtils;
+    private RedisCache redisCache;
 
     /**
      * 客户管理界面
@@ -34,7 +36,9 @@ public class UserController {
         JSONObject json = new JSONObject();
         AdminDomain adminDomain = adminService.get(1L);
         json.put("adminDomain", adminDomain);
-        redisUtils.putCache("iceSeed",adminDomain);
+        redisCache.putCache("iceSeed",adminDomain);
+        EhcacheManager.put("aa","aaaa");
+        System.out.println(EhcacheManager.get("aa"));
         return json.toString();
     }
 }

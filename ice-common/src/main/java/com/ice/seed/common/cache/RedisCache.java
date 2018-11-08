@@ -1,5 +1,6 @@
-package com.ice.seed.common.utils;
+package com.ice.seed.common.cache;
 
+import com.ice.seed.common.utils.ProtoStuffSerializerUtil;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.redis.connection.RedisConnection;
@@ -15,7 +16,7 @@ import java.util.Map.Entry;
  * @version : v0.0.1
  * @since : 2018/11/2
  */
-public class RedisUtils {
+public class RedisCache {
     /* spring redis 模版 */
     @Setter
     @Getter
@@ -34,7 +35,7 @@ public class RedisUtils {
      * @param obj
      * @return
      * @since : 2016年11月17日
-     * @author : kezhan
+     * @author : IceSeed
      */
     public <T> boolean putCache(String key, T obj) {
         final byte[] bkey = (prefixname + key).getBytes();
@@ -54,7 +55,7 @@ public class RedisUtils {
      * @param key
      * @param obj
      * @return
-     * @author : kezhan
+     * @author : IceSeed
      * @since : 2017年7月16日
      */
     public <T> boolean putCacheNotPrefix(String key, T obj) {
@@ -76,7 +77,7 @@ public class RedisUtils {
      * @param obj
      * @param expireTime
      * @since : 2016年11月17日
-     * @author : kezhan
+     * @author : IceSeed
      */
     public <T> void putCacheWithExpireTime(String key, T obj, final long expireTime) {
         final byte[] bkey = (prefixname + key).getBytes();
@@ -93,13 +94,13 @@ public class RedisUtils {
 
 
     /**
-     * 存入一个集合
+     * 存入一个List集合
      *
      * @param key
      * @param objList
      * @return
      * @since : 2016年11月17日
-     * @author : kezhan
+     * @author : IceSeed
      */
     public <T> boolean putListCache(String key, List<T> objList) {
         final byte[] bkey = (prefixname + key).getBytes();
@@ -114,14 +115,14 @@ public class RedisUtils {
     }
 
     /**
-     * 存入一个集合并设定 有效时间
+     * 存入一个List集合并设定 有效时间
      *
      * @param key
      * @param objList
      * @param expireTime
      * @return
      * @since : 2016年11月17日
-     * @author : kezhan
+     * @author : IceSeed
      */
     public <T> boolean putListCacheWithExpireTime(String key, List<T> objList, final long expireTime) {
         final byte[] bkey = (prefixname + key).getBytes();
@@ -143,7 +144,7 @@ public class RedisUtils {
      * @param targetClass
      * @return
      * @since : 2016年11月17日
-     * @author : kezhan
+     * @author : IceSeed
      */
     public <T> T getCache(final String key, Class<T> targetClass) {
         byte[] result = redisTemplate.execute(new RedisCallback<byte[]>() {
@@ -165,7 +166,7 @@ public class RedisUtils {
      * @param targetClass
      * @return
      * @since : 2016年11月17日
-     * @author : kezhan
+     * @author : IceSeed
      */
     public <T> T getCacheNotPrefix(final String key, Class<T> targetClass) {
         byte[] result = redisTemplate.execute(new RedisCallback<byte[]>() {
@@ -185,7 +186,7 @@ public class RedisUtils {
      *
      * @param key
      * @return
-     * @author : houshangkun
+     * @author : IceSeed
      * @since : 2017年3月30日
      */
     public String getCache(final String key) {
@@ -206,7 +207,7 @@ public class RedisUtils {
      *
      * @param key
      * @return
-     * @author : kezhan
+     * @author : IceSeed
      * @since : 2017年7月16日
      */
     public String getCacheNotPrefix(final String key) {
@@ -229,7 +230,7 @@ public class RedisUtils {
      * @param targetClass
      * @return
      * @since : 2016年11月17日
-     * @author : kezhan
+     * @author : IceSeed
      */
     public <T> List<T> getListCache(final String key, Class<T> targetClass) {
         byte[] result = redisTemplate.execute(new RedisCallback<byte[]>() {
@@ -249,25 +250,17 @@ public class RedisUtils {
      *
      * @param key
      * @since : 2016年11月17日
-     * @author : kezhan
+     * @author : IceSeed
      */
     public void deleteCache(String key) {
         redisTemplate.delete((prefixname + key));
-        // Long result = redisTemplate.execute(new RedisCallback<Long>() {
-        // @Override
-        // public Long doInRedis(RedisConnection connection) throws
-        // DataAccessException {
-        // return connection.del(key.getBytes());
-        // }
-        // });
-        // return result;
     }
 
     /**
      * 精确删除key 没有默认前缀
      *
      * @param key
-     * @author : kezhan
+     * @author : IceSeed
      * @since : 2017年7月16日
      */
     public void delCacheNotPrefix(String key) {
@@ -279,7 +272,7 @@ public class RedisUtils {
      *
      * @param pattern
      * @since : 2016年11月17日
-     * @author : kezhan
+     * @author : IceSeed
      */
     public void deleteCacheWithPattern(String pattern) {
         Set<String> keys = redisTemplate.keys(pattern);
@@ -290,7 +283,7 @@ public class RedisUtils {
      * 清空所有缓存
      *
      * @since : 2016年11月17日
-     * @author : kezhan
+     * @author : IceSeed
      */
     public void clearCache() {
         deleteCacheWithPattern(prefixname + "|*");
@@ -302,7 +295,7 @@ public class RedisUtils {
      * @param key
      * @param values
      * @return List中元素的个数
-     * @author : houshangkun
+     * @author : IceSeed
      * @since : 2017年3月24日
      */
     public Long lPush(String key, String values) {
@@ -323,7 +316,7 @@ public class RedisUtils {
      * @param key
      * @param values
      * @return List中元素的个数
-     * @author : houshangkun
+     * @author : IceSeed
      * @since : 2017年3月24日
      */
     public Long lPushX(String key, String values) {
@@ -344,7 +337,7 @@ public class RedisUtils {
      * @param key
      * @param values
      * @return List中元素的个数
-     * @author : houshangkun
+     * @author : IceSeed
      * @since : 2017年3月24日
      */
     public Long rPushX(String key, String values) {
@@ -365,7 +358,7 @@ public class RedisUtils {
      * @param key
      * @param index
      * @return 元素内容
-     * @author : houshangkun
+     * @author : IceSeed
      * @since : 2017年3月24日
      */
     public String lIndex(String key, long index) {
@@ -384,7 +377,7 @@ public class RedisUtils {
      *
      * @param key
      * @return 查询元素的个数
-     * @author : houshangkun
+     * @author : IceSeed
      * @since : 2017年3月24日
      */
     public Long lLen(String key) {
@@ -406,7 +399,7 @@ public class RedisUtils {
      *
      * @param key
      * @return
-     * @author : houshangkun
+     * @author : IceSeed
      * @since : 2017年3月24日
      */
     public String lPop(String key) {
@@ -427,7 +420,7 @@ public class RedisUtils {
      * @param index
      * @param values
      * @return
-     * @author : houshangkun
+     * @author : IceSeed
      * @since : 2017年9月15日
      */
     public String lset(String key, long index, String values) {
@@ -449,7 +442,7 @@ public class RedisUtils {
      * @param key
      * @param expireTime
      * @return
-     * @author : houshangkun
+     * @author : IceSeed
      * @since : 2017年10月9日
      */
     public String expire(String key, final long expireTime) {
@@ -599,9 +592,6 @@ public class RedisUtils {
     }
 
 
-
-
-
     /**
      * 返回mapkey是否存在
      * @param key
@@ -621,8 +611,6 @@ public class RedisUtils {
 
         return result;
     }
-
-
 
 
 

@@ -7,4 +7,5 @@
     <!--载入参数-->
     <import resource="classpath:spring/spring-service-core.xml"/>
     <import resource="classpath:spring/spring-redis-common.xml"/>
+    <import resource="classpath:spring/spring-ehcache-common.xml"/>
 </beans>

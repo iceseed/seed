@@ -46,8 +46,12 @@
 		<property name="hashValueSerializer" ref="jdkSerializationRedisSerializer" />
 		<property name="enableTransactionSupport" value="true" />
 	</bean>
-	
-	
+
+	<!-- redis 注入处理 -->
+	<bean id="redisCache" class="com.ice.seed.common.cache.RedisCache">
+		<property name="redisTemplate" ref="redisTemplate" />
+		<property name="prefixname" value="${ice.redis.prefixname}"></property>
+	</bean>
 	
 	<!-- spring-data-redis配置,主要用作redis缓存 end -->
 
