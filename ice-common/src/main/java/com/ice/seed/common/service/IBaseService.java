@@ -24,7 +24,7 @@ public interface IBaseService<T> {
      * 根据主键对象获取一个领域对象
      * @param object 主键对象
      * @return
-     * @author : kezhan	
+     * @author : IceSeed	
      * @since : 2017年7月21日
      */
     T getPrimaryKeyObj(Object object);

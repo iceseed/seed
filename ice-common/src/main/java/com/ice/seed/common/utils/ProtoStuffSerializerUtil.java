@@ -13,7 +13,7 @@ import com.dyuproject.protostuff.runtime.RuntimeSchema;
 /**
  * 序列化工具
  * @since : 2016年11月16日
- * @author : kezhan
+ * @author : IceSeed
  * @version : v0.0.1
  */
 public class ProtoStuffSerializerUtil {
@@ -23,7 +23,7 @@ public class ProtoStuffSerializerUtil {
 	 * @param obj
 	 * @return
 	 * @since : 2016年11月16日
-	 * @author : kezhan
+	 * @author : IceSeed
 	 */
 	public static <T> byte[] serialize(T obj) {
 		if (obj == null) {
@@ -49,7 +49,7 @@ public class ProtoStuffSerializerUtil {
 	 * @param targetClass
 	 * @return
 	 * @since : 2016年11月16日
-	 * @author : kezhan
+	 * @author : IceSeed
 	 */
 	public static <T> T deserialize(byte[] paramArrayOfByte, Class<T> targetClass) {
 		if (paramArrayOfByte == null || paramArrayOfByte.length == 0) {
@@ -71,7 +71,7 @@ public class ProtoStuffSerializerUtil {
 	 * @param objList
 	 * @return
 	 * @since : 2016年11月16日
-	 * @author : kezhan
+	 * @author : IceSeed
 	 */
 	public static <T> byte[] serializeList(List<T> objList) {
 		if (objList == null || objList.isEmpty()) {
@@ -108,7 +108,7 @@ public class ProtoStuffSerializerUtil {
 	 * @param targetClass
 	 * @return
 	 * @since : 2016年11月16日
-	 * @author : kezhan
+	 * @author : IceSeed
 	 */
 	public static <T> List<T> deserializeList(byte[] paramArrayOfByte, Class<T> targetClass) {
 		if (paramArrayOfByte == null || paramArrayOfByte.length == 0) {
